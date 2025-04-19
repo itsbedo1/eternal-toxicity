@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Eternal Toxicity – Shop</title>
+  <title>Eternal Toxicity</title>
   <style>
     body {
       margin: 0;
@@ -56,9 +56,6 @@
     }
     .product-info {
       padding: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
     .product-info h3 {
       margin: 0;
@@ -86,8 +83,6 @@
       font-weight: bold;
       cursor: pointer;
     }
-
-    /* Modal Styles */
     .modal {
       display: none;
       position: fixed;
@@ -109,32 +104,6 @@
       border: 1px solid #333;
       position: relative;
     }
-    .modal-content h2 {
-      margin-top: 0;
-      color: #00ff88;
-      text-align: center;
-    }
-    .modal-content textarea, 
-    .modal-content input[type="email"] {
-      width: 100%;
-      margin-top: 10px;
-      padding: 12px;
-      background-color: #000;
-      border: 1px solid #444;
-      color: #0f0;
-      font-size: 1rem;
-    }
-    .modal-content button[type="submit"] {
-      margin-top: 15px;
-      padding: 12px 20px;
-      background-color: #00ff88;
-      color: black;
-      font-weight: bold;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-    }
     .close-btn {
       position: absolute;
       top: 10px;
@@ -145,79 +114,97 @@
       border: none;
       cursor: pointer;
     }
+    .modal-content h2 {
+      text-align: center;
+      color: #00ff88;
+    }
+    .modal-content div {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      color: #00ff88;
+      background-color: #000;
+      padding: 15px;
+      border: 1px solid #444;
+      min-height: 150px;
+      margin-bottom: 10px;
+    }
+    .modal-content input, .modal-content button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+    .modal-content button[type="submit"] {
+      background-color: #00ff88;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <header>
-    Eternal Toxicity
-  </header>
-
+  <header>Eternal Toxicity</header>
   <div class="topbar">
     <button onclick="openModal()">📦 View Order</button>
   </div>
 
   <section class="products">
-
+    
       <div class="product">
         <img src="gothic_keychains.jpg" alt="Gothic Keychains (3 Styles)">
         <div class="product-info">
           <h3>Gothic Keychains (3 Styles)</h3>
           <p>Dark-themed acrylic keychains with gothic charms and mysterious symbols. Perfect for customizing your bag, wallet, or keys.</p>
           <div class="price">6,000 IQD</div>
-          <button class="add-btn" onclick="addToCart('Gothic Keychains (3 Styles)', parseInt('6000'))">Add to Cart</button>
+          <button class="add-btn" onclick="addToCart('Gothic Keychains (3 Styles)', 6000)">Add to Cart</button>
         </div>
       </div>
-
       <div class="product">
         <img src="mayhem_backpack.jpg" alt="Hand-Painted Mayhem Backpack">
         <div class="product-info">
           <h3>Hand-Painted Mayhem Backpack</h3>
           <p>One-of-a-kind handmade backpack, fully hand-painted with iconic black metal bands like Mayhem, Burzum, and Darkthrone. No replicas — this is a true collector's piece.</p>
           <div class="price">48,000 IQD</div>
-          <button class="add-btn" onclick="addToCart('Hand-Painted Mayhem Backpack', parseInt('48000'))">Add to Cart</button>
+          <button class="add-btn" onclick="addToCart('Hand-Painted Mayhem Backpack', 48000)">Add to Cart</button>
         </div>
       </div>
-
       <div class="product">
         <img src="custom_grad_cap.jpg" alt="Custom Graduation Cap">
         <div class="product-info">
           <h3>Custom Graduation Cap</h3>
           <p>Custom-made mortarboard (graduate cap), hand-painted or printed with your favorite phrase, design, or reference.</p>
           <div class="price">20,000 IQD</div>
-          <button class="add-btn" onclick="addToCart('Custom Graduation Cap', parseInt('20000'))">Add to Cart</button>
+          <button class="add-btn" onclick="addToCart('Custom Graduation Cap', 20000)">Add to Cart</button>
         </div>
       </div>
-
       <div class="product">
         <img src="grunge_bag_1.jpg" alt="Grunge Accessory Bag Set">
         <div class="product-info">
           <h3>Grunge Accessory Bag Set</h3>
           <p>A grunge-inspired accessory set featuring chains, pins, and vintage thank-you cards. Ideal for those who love mixed media fashion.</p>
           <div class="price">18,000 IQD</div>
-          <button class="add-btn" onclick="addToCart('Grunge Accessory Bag Set', parseInt('18000'))">Add to Cart</button>
+          <button class="add-btn" onclick="addToCart('Grunge Accessory Bag Set', 18000)">Add to Cart</button>
         </div>
       </div>
-
       <div class="product">
         <img src="punk_bag_2.jpg" alt="Punk Messenger Bag – Angel & Skull Patch">
         <div class="product-info">
           <h3>Punk Messenger Bag – Angel & Skull Patch</h3>
           <p>Olive green punk-style messenger bag decorated with dark angel and skull patches, finished with studs and metal accents.</p>
           <div class="price">25,000 IQD</div>
-          <button class="add-btn" onclick="addToCart('Punk Messenger Bag – Angel & Skull Patch', parseInt('25000'))">Add to Cart</button>
+          <button class="add-btn" onclick="addToCart('Punk Messenger Bag – Angel & Skull Patch', 25000)">Add to Cart</button>
         </div>
       </div>
-
       <div class="product">
         <img src="lou_reed_necklaces.jpg" alt="Lou Reed Couple Necklaces">
         <div class="product-info">
           <h3>Lou Reed Couple Necklaces</h3>
           <p>Matching couple necklaces with 'She sings Lou Reed’s / She plays guitar' printed on black glass pendants. Great for music lovers.</p>
           <div class="price">10,000 IQD</div>
-          <button class="add-btn" onclick="addToCart('Lou Reed Couple Necklaces', parseInt('10000'))">Add to Cart</button>
+          <button class="add-btn" onclick="addToCart('Lou Reed Couple Necklaces', 10000)">Add to Cart</button>
         </div>
       </div>
-</section>
+  </section>
 
   <!-- Modal -->
   <div class="modal" id="cartModal">
@@ -225,7 +212,8 @@
       <button class="close-btn" onclick="closeModal()">✖</button>
       <h2>Your Order</h2>
       <form action="https://formsubmit.co/abodymain@gmail.com" method="POST">
-        <div id="cartDisplay" style="font-size: 1.2rem; line-height: 1.8rem; color: #00ff88; background-color: #000; padding: 15px; border: 1px solid #444; min-height: 150px;"></div>
+        <div id="cartDisplay"></div>
+        <input type="hidden" name="cart" id="cartInput" />
         <input type="email" name="email" placeholder="Enter your email" required />
         <button type="submit">Send Order</button>
       </form>
@@ -259,6 +247,7 @@
       });
       message += `\nTotal: ${total} IQD`;
       document.getElementById("cartDisplay").innerText = message;
+      document.getElementById("cartInput").value = message;
     }
   </script>
 </body>
