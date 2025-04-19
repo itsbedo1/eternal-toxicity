@@ -212,9 +212,13 @@
       <button class="close-btn" onclick="closeModal()">✖</button>
       <h2>Your Order</h2>
       <form action="https://formsubmit.co/abodymain@gmail.com" method="POST">
-        <div id="cartDisplay"></div>
+<input type="hidden" name="_subject" value="New Order from Eternal Toxicity" />
+<input type="hidden" name="_template" value="table" />
+        <label>Order Summary:</label>
+<div id="cartDisplay"></div>
         <input type="hidden" name="cart" id="cartInput" />
-        <input type="email" name="email" placeholder="Enter your email" required />
+        <label>Your Email:</label>
+<input type="email" name="Customer Email" placeholder="Enter your email" required />
         <button type="submit">Send Order</button>
       </form>
     </div>
