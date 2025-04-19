@@ -215,7 +215,9 @@
 <input type="hidden" name="_subject" value="New Order from Eternal Toxicity" />
 <input type="hidden" name="_template" value="table" />
         <label>Order Summary:</label>
+<label>Order Summary:</label>
 <div id="cartDisplay"></div>
+<input type="hidden" name="cart" id="cartInput" /></div>
         <input type="hidden" name="cart" id="cartInput" />
         <label>Your Email:</label>
 <input type="email" name="Customer Email" placeholder="Enter your email" required />
@@ -251,6 +253,7 @@
       });
       message += `\nTotal: ${total} IQD`;
       document.getElementById("cartDisplay").innerText = message;
+      document.getElementById("cartInput").value = message;
       document.getElementById("cartInput").value = message;
     }
   </script>
