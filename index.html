@@ -158,5 +158,32 @@
       });
     }
   </script>
+
+<script type="module">
+  import emailjs from 'https://cdn.emailjs.com/dist/email.min.mjs';
+
+  emailjs.init('10hJ2EFfhAybfo7CX');
+
+  window.sendEmail = async function(e) {
+    e.preventDefault();
+    const email = document.getElementById("emailField").value;
+    const cart = document.getElementById("cartInput").value;
+    document.getElementById("user_email").value = email;
+
+    try {
+      await emailjs.send("service_mapl59d", "template_qkpwe7o", {
+        user_email: email,
+        cart_details: cart
+      });
+      alert("✅ Order sent successfully!");
+      closeModal();
+      localStorage.removeItem('cart');
+    } catch (err) {
+      console.error(err);
+      alert("❌ Failed to send order.");
+    }
+  };
+</script>
 </body>
+
 </html>
