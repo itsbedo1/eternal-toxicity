@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,140 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eternal Toxicity</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Courier New', monospace;
-      background-color: #0b0b0b;
-      color: #e0e0e0;
-    }
-    header {
-      background-color: #1a1a1a;
-      padding: 20px;
-      text-align: center;
-      font-size: 2rem;
-      color: #ff0055;
-    }
-    .topbar {
-      background-color: #111;
-      display: flex;
-      justify-content: flex-end;
-      padding: 10px 20px;
-    }
-    .topbar button {
-      background-color: #ff0055;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-    .product {
-      background-color: #1a1a1a;
-      border: 1px solid #333;
-      border-radius: 10px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 460px;
-    }
-    .product img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .product-info {
-      padding: 12px;
-    }
-    .product-info h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      color: #ff0055;
-    }
-    .product-info p {
-      font-size: 0.9rem;
-      margin-top: 8px;
-    }
-    .price {
-      margin-top: 15px;
-      padding: 10px;
-      font-size: 1rem;
-      color: #00ff88;
-      border-top: 1px solid #00ff88;
-      text-align: right;
-    }
-    .add-btn {
-      margin-top: 10px;
-      background-color: #ff0055;
-      color: white;
-      border: none;
-      padding: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-content {
-      background-color: #1a1a1a;
-      padding: 30px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 600px;
-      border: 1px solid #333;
-      position: relative;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 1.2rem;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    .modal-content h2 {
-      text-align: center;
-      color: #00ff88;
-    }
-    .modal-content div {
-      font-size: 1.2rem;
-      line-height: 1.8rem;
-      color: #00ff88;
-      background-color: #000;
-      padding: 15px;
-      border: 1px solid #444;
-      min-height: 150px;
-      margin-bottom: 10px;
-    }
-    .modal-content input, .modal-content button[type="submit"] {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      font-size: 1rem;
-    }
-    .modal-content button[type="submit"] {
-      background-color: #00ff88;
-      color: black;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    body { margin: 0; font-family: monospace; background: #0b0b0b; color: #e0e0e0; }
+    header { background: #1a1a1a; padding: 20px; text-align: center; font-size: 2rem; color: #ff0055; }
+    .topbar { background: #111; display: flex; justify-content: flex-end; padding: 10px 20px; }
+    .topbar button { background: #ff0055; color: white; border: none; padding: 10px 20px; font-size: 1rem; cursor: pointer; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 20px; }
+    .product { background: #1a1a1a; border: 1px solid #333; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; min-height: 460px; }
+    .product img { width: 100%; height: 200px; object-fit: cover; }
+    .product-info { padding: 12px; }
+    .product-info h3 { margin: 0; font-size: 1.2rem; color: #ff0055; }
+    .product-info p { font-size: 0.9rem; margin-top: 8px; }
+    .price { margin-top: 15px; padding: 10px; font-size: 1rem; color: #00ff88; border-top: 1px solid #00ff88; text-align: right; }
+    .add-btn { margin-top: 10px; background: #ff0055; color: white; border: none; padding: 8px; font-weight: bold; cursor: pointer; }
+    .modal { display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center; }
+    .modal-content { background: #1a1a1a; padding: 30px; border-radius: 10px; width: 90%; max-width: 600px; border: 1px solid #333; position: relative; }
+    .close-btn { position: absolute; top: 10px; right: 15px; font-size: 1.2rem; color: white; background: none; border: none; cursor: pointer; }
+    .modal-content h2 { text-align: center; color: #00ff88; }
+    .modal-content div { font-size: 1.2rem; line-height: 1.8rem; color: #00ff88; background: #000; padding: 15px; border: 1px solid #444; min-height: 150px; margin-bottom: 10px; }
+    .modal-content input, .modal-content button { width: 100%; padding: 12px; margin-top: 10px; font-size: 1rem; }
+    .modal-content button { background: #00ff88; color: black; font-weight: bold; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -151,57 +35,57 @@
   <section class="products">
     
       <div class="product">
-        <img src="gothic_keychains.jpg" alt="Gothic Keychains (3 Styles)">
+        <img src="Gothic_Keychains.jpg" alt="Gothic Keychains (3 Styles)">
         <div class="product-info">
           <h3>Gothic Keychains (3 Styles)</h3>
-          <p>Dark-themed acrylic keychains with gothic charms and mysterious symbols. Perfect for customizing your bag, wallet, or keys.</p>
-          <div class="price">6,000 IQD</div>
+          <p>Dark-themed acrylic keychains with gothic charms and mysterious symbols.</p>
+          <div class="price">6000 IQD</div>
           <button class="add-btn" onclick="addToCart('Gothic Keychains (3 Styles)', 6000)">Add to Cart</button>
         </div>
       </div>
       <div class="product">
-        <img src="mayhem_backpack.jpg" alt="Hand-Painted Mayhem Backpack">
-        <div class="product-info">
-          <h3>Hand-Painted Mayhem Backpack</h3>
-          <p>One-of-a-kind handmade backpack, fully hand-painted with iconic black metal bands like Mayhem, Burzum, and Darkthrone. No replicas — this is a true collector's piece.</p>
-          <div class="price">48,000 IQD</div>
-          <button class="add-btn" onclick="addToCart('Hand-Painted Mayhem Backpack', 48000)">Add to Cart</button>
-        </div>
-      </div>
-      <div class="product">
-        <img src="custom_grad_cap.jpg" alt="Custom Graduation Cap">
-        <div class="product-info">
-          <h3>Custom Graduation Cap</h3>
-          <p>Custom-made mortarboard (graduate cap), hand-painted or printed with your favorite phrase, design, or reference.</p>
-          <div class="price">20,000 IQD</div>
-          <button class="add-btn" onclick="addToCart('Custom Graduation Cap', 20000)">Add to Cart</button>
-        </div>
-      </div>
-      <div class="product">
-        <img src="grunge_bag_1.jpg" alt="Grunge Accessory Bag Set">
+        <img src="Grunge_Bag_Set.jpg" alt="Grunge Accessory Bag Set">
         <div class="product-info">
           <h3>Grunge Accessory Bag Set</h3>
-          <p>A grunge-inspired accessory set featuring chains, pins, and vintage thank-you cards. Ideal for those who love mixed media fashion.</p>
-          <div class="price">18,000 IQD</div>
+          <p>Grunge-inspired set with chains, pins, and thank-you cards.</p>
+          <div class="price">18000 IQD</div>
           <button class="add-btn" onclick="addToCart('Grunge Accessory Bag Set', 18000)">Add to Cart</button>
         </div>
       </div>
       <div class="product">
-        <img src="punk_bag_2.jpg" alt="Punk Messenger Bag – Angel & Skull Patch">
+        <img src="Punk_Bag.jpg" alt="Punk Messenger Bag – Angel & Skull Patch">
         <div class="product-info">
           <h3>Punk Messenger Bag – Angel & Skull Patch</h3>
-          <p>Olive green punk-style messenger bag decorated with dark angel and skull patches, finished with studs and metal accents.</p>
-          <div class="price">25,000 IQD</div>
+          <p>Olive punk-style bag with dark angel and skull patches.</p>
+          <div class="price">25000 IQD</div>
           <button class="add-btn" onclick="addToCart('Punk Messenger Bag – Angel & Skull Patch', 25000)">Add to Cart</button>
         </div>
       </div>
       <div class="product">
-        <img src="lou_reed_necklaces.jpg" alt="Lou Reed Couple Necklaces">
+        <img src="LouReed_Necklaces.jpg" alt="Lou Reed Couple Necklaces">
         <div class="product-info">
           <h3>Lou Reed Couple Necklaces</h3>
-          <p>Matching couple necklaces with 'She sings Lou Reed’s / She plays guitar' printed on black glass pendants. Great for music lovers.</p>
-          <div class="price">10,000 IQD</div>
-          <button class="add-btn" onclick="addToCart('Lou Reed Couple Necklaces', 10000)">Add to Cart</button>
+          <p>Matching necklaces: 'She sings Lou Reed’s / She plays guitar'.</p>
+          <div class="price">14000 IQD</div>
+          <button class="add-btn" onclick="addToCart('Lou Reed Couple Necklaces', 14000)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product">
+        <img src="LouReed_CloseUp.jpg" alt="Lou Reed Necklace Close-Up">
+        <div class="product-info">
+          <h3>Lou Reed Necklace Close-Up</h3>
+          <p>Close-up of Lou Reed necklace pendant with metal chain.</p>
+          <div class="price">10000 IQD</div>
+          <button class="add-btn" onclick="addToCart('Lou Reed Necklace Close-Up', 10000)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product">
+        <img src="Mayhem_Backpack.jpg" alt="Hand-Painted Mayhem Backpack">
+        <div class="product-info">
+          <h3>Hand-Painted Mayhem Backpack</h3>
+          <p>Unique handmade backpack painted with black metal bands.</p>
+          <div class="price">48000 IQD</div>
+          <button class="add-btn" onclick="addToCart('Hand-Painted Mayhem Backpack', 48000)">Add to Cart</button>
         </div>
       </div>
   </section>
@@ -211,22 +95,22 @@
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal()">✖</button>
       <h2>Your Order</h2>
-      <form action="https://formsubmit.co/abodymain@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="New Order from Eternal Toxicity" />
-<input type="hidden" name="_template" value="table" />
-        <label>Order Summary:</label>
-<label>Order Summary:</label>
-<div id="cartDisplay"></div>
-<input type="hidden" name="cart" id="cartInput" /></div>
-        <input type="hidden" name="cart" id="cartInput" />
-        <label>Your Email:</label>
-<input type="email" name="Customer Email" placeholder="Enter your email" required />
+      <form id="orderForm" onsubmit="sendEmail(event)">
+        <div id="cartDisplay"></div>
+        <input type="hidden" name="user_email" id="user_email" />
+        <input type="hidden" name="cart_details" id="cartInput" />
+        <input type="email" id="emailField" placeholder="Enter your email" required />
         <button type="submit">Send Order</button>
       </form>
     </div>
   </div>
 
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
+    (function() {
+      emailjs.init("10hJ2EFfhAybfo7CX");
+    })();
+
     function addToCart(name, price) {
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
       cart.push({ name, price });
@@ -254,7 +138,24 @@
       message += `\nTotal: ${total} IQD`;
       document.getElementById("cartDisplay").innerText = message;
       document.getElementById("cartInput").value = message;
-      document.getElementById("cartInput").value = message;
+    }
+
+    function sendEmail(e) {
+      e.preventDefault();
+      const email = document.getElementById("emailField").value;
+      const cart = document.getElementById("cartInput").value;
+      document.getElementById("user_email").value = email;
+
+      emailjs.send("service_mapl59d", "template_qkpwe7o", {
+        user_email: email,
+        cart_details: cart
+      }).then(function(response) {
+        alert("✅ Order sent successfully!");
+        closeModal();
+        localStorage.removeItem('cart');
+      }, function(error) {
+        alert("❌ Failed to send order. Please try again.");
+      });
     }
   </script>
 </body>
