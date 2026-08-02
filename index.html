@@ -222,7 +222,7 @@
 <script>
 document.getElementById('downloadBtn').addEventListener('click', function() {
   const post = document.getElementById('post');
-  html2canvas(post, { width: 1080, height: 1080, scale: 1, backgroundColor: '#F0FDF4' }).then(canvas => {
+  html2canvas(post, { width: 1080, height: 1080, scale: 1, backgroundColor: '#F0FDF4', foreignObjectRendering: true }).then(canvas => {
     const link = document.createElement('a');
     link.download = 'salary-announcement.png';
     link.href = canvas.toDataURL('image/png');
