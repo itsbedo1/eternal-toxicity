@@ -220,6 +220,11 @@
 
 <script>
 document.getElementById('downloadBtn').addEventListener('click', async function() {
+  if (document.activeElement && document.activeElement.blur) {
+    document.activeElement.blur();
+  }
+  await new Promise(r => setTimeout(r, 100));
+
   const post = document.getElementById('post');
   const styleText = document.querySelector('style').textContent;
 
