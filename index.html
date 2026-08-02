@@ -43,14 +43,20 @@
   }
 
   .stage {
+    width: min(94vw, 1080px);
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .scaler {
     width: 1080px;
     height: 1080px;
-    transform: scale(0.5);
-    transform-origin: top center;
-    margin-bottom: -540px;
-  }
-  @media (max-width: 600px) {
-    .stage { transform: scale(0.32); margin-bottom: -734px; }
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(calc(min(94vw, 1080px) / 1080px));
+    transform-origin: top left;
   }
 
   .post {
@@ -190,6 +196,7 @@
   <div class="hint">اضغط على أي نص وعدله مباشرة، بعدين اضغط "تحميل كصورة" ونشره بفيسبوك مباشرة.</div>
 
   <div class="stage">
+   <div class="scaler">
     <div class="post" id="post">
       <div class="top-bar"></div>
       <div class="gold-frame"></div>
@@ -217,6 +224,7 @@
         </footer>
       </div>
     </div>
+   </div>
   </div>
 
 <script>
