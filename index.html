@@ -18,6 +18,7 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    overflow-x: hidden;
   }
 
   .toolbar { display: flex; gap: 10px; margin-bottom: 16px; }
@@ -43,20 +44,11 @@
   }
 
   .stage {
-    width: min(94vw, 1080px);
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .scaler {
     width: 1080px;
     height: 1080px;
-    position: absolute;
-    top: 0;
-    left: 0;
     transform: scale(calc(min(94vw, 1080px) / 1080px));
-    transform-origin: top left;
+    transform-origin: top center;
+    margin-bottom: calc(min(94vw, 1080px) - 1080px);
   }
 
   .post {
@@ -196,7 +188,6 @@
   <div class="hint">اضغط على أي نص وعدله مباشرة، بعدين اضغط "تحميل كصورة" ونشره بفيسبوك مباشرة.</div>
 
   <div class="stage">
-   <div class="scaler">
     <div class="post" id="post">
       <div class="top-bar"></div>
       <div class="gold-frame"></div>
@@ -224,18 +215,43 @@
         </footer>
       </div>
     </div>
-   </div>
   </div>
 
 <script>
-document.getElementById('downloadBtn').addEventListener('click', function() {
+document.getElementById('downloadBtn').addEventListener('click', async function() {
   const post = document.getElementById('post');
-  html2canvas(post, { width: 1080, height: 1080, scale: 1, backgroundColor: '#F0FDF4', foreignObjectRendering: true }).then(canvas => {
-    const link = document.createElement('a');
-    link.download = 'salary-announcement.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-  });
+  const styleText = document.querySelector('style').textContent;
+
+  const iframe = document.createElement('iframe');
+  iframe.style.position = 'fixed';
+  iframe.style.width = '1080px';
+  iframe.style.height = '1080px';
+  iframe.style.left = '0';
+  iframe.style.top = '0';
+  iframe.style.border = 'none';
+  iframe.style.opacity = '0';
+  iframe.style.pointerEvents = 'none';
+  document.body.appendChild(iframe);
+
+  const doc = iframe.contentDocument;
+  doc.open();
+  doc.write('<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><style>' + styleText + '</style></head><body style="margin:0;padding:0;"></body></html>');
+  doc.close();
+
+  const clone = post.cloneNode(true);
+  clone.style.transform = 'none';
+  clone.style.margin = '0';
+  doc.body.appendChild(clone);
+
+  await new Promise(r => iframe.contentWindow.requestAnimationFrame(() => iframe.contentWindow.requestAnimationFrame(r)));
+
+  const canvas = await html2canvas(clone, { width: 1080, height: 1080, scale: 1, backgroundColor: '#F0FDF4', foreignObjectRendering: true });
+  document.body.removeChild(iframe);
+
+  const link = document.createElement('a');
+  link.download = 'salary-announcement.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
 });
 </script>
 
